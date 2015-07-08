@@ -20,6 +20,18 @@ public class NetworkManager : MonoBehaviour {
 		MasterServer.RegisterHost (gameTypeName, gameName);
 	}
 
+	void OnServerInitialized() {
+		Debug.Log ("Server initialized");
+	}
+
+	void OnGUI() {
+		if (!Network.isClient && !Network.isServer) {
+			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
+				StartServer();
+			}
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	
