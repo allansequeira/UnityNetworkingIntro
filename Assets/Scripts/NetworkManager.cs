@@ -17,7 +17,6 @@ public class NetworkManager : MonoBehaviour {
 
 	/// <summary>
 	/// Create / Start a server
-	/// 
 	/// </summary>
 	private void StartServer() {
 		// initialize a server on the network and register it with the master server
@@ -29,9 +28,15 @@ public class NetworkManager : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Refreshs the host list.
+	/// </summary>
 	private void RefreshHostList() {
 		MasterServer.RequestHostList (gameTypeName);
 	}
+
+
+	// Callbacks / messages
 
 	void OnServerInitialized() {
 		Debug.Log ("Server initialized");
@@ -52,6 +57,9 @@ public class NetworkManager : MonoBehaviour {
 			hostList = MasterServer.PollHostList();
 		}
 	}
+
+
+	// GUI
 
 	void OnGUI() {
 		if (!Network.isClient && !Network.isServer) {
