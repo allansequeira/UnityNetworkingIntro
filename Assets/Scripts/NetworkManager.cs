@@ -54,6 +54,7 @@ public class NetworkManager : MonoBehaviour {
 		}
 
 		if (masterServerEvent == MasterServerEvent.HostListReceived) {
+//			yield return new WaitForSeconds(1.5f);
 			hostList = MasterServer.PollHostList();
 			//hostList = Invoke("MasterServer.PollHostList", 2f);
 		}
